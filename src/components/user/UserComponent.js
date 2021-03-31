@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
-import './User.css';
 
 class UserComponent extends Component {
     render() {
-        let {item, clsName} = this.props;
+        let {item, onUserChose, isShowButton} = this.props;
         return (
-            <div className={clsName}>
-                {item.name}-{item.age}-{item.status.toString()}-{item.budget}
+            <div>
+                {item.id}-{item.name}  
+                {!isShowButton &&
+                <button onClick={()=>{onUserChose(item.id)}}>click</button>
+            }
+
             </div>
         );
     }
